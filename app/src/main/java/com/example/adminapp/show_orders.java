@@ -43,9 +43,6 @@ public class show_orders extends AppCompatActivity {
                 for(DataSnapshot snapshot1:snapshot.getChildren())//email id
                 {
                     ordered_user_emails.add(snapshot1.getKey());
-                    Log.d("fuck2",snapshot1.getKey());
-
-
                     String final_string="";
                     long total_payable_amount=0;
                     for(DataSnapshot snapshot2:snapshot1.getChildren())
@@ -55,15 +52,13 @@ public class show_orders extends AppCompatActivity {
                         String payment = "";
                         String orderDetails = "";
                         long totalamount = 0;
-                        for(DataSnapshot snapshot3:snapshot2.getChildren()) {//date and time
-
-
+                        for(DataSnapshot snapshot3:snapshot2.getChildren()) {
 
                             if (snapshot3.getKey().equals("date")) {
                                 date += snapshot3.getValue().toString();
                             } else if (snapshot3.getKey().equals("time")) {
                                 time += snapshot3.getValue().toString();
-                            } else if (snapshot3.getKey().equals("payment")) {
+                            } else if (snapshot3.getKey().equals("payment_mode")) {
                                 payment += snapshot3.getValue().toString();
                             } else
                                 {
@@ -71,10 +66,8 @@ public class show_orders extends AppCompatActivity {
                                     String count = "";
                                     long payableAmount = 0;
 
-                                for (DataSnapshot snapshot4 : snapshot3.getChildren())//products
+                                for (DataSnapshot snapshot4 : snapshot3.getChildren())
                                 {
-
-
                                         if (snapshot4.getKey().equals("name")) {
                                             name += snapshot4.getValue(String.class);
 
@@ -89,11 +82,10 @@ public class show_orders extends AppCompatActivity {
                             }
                         }
                         total_payable_amount+=totalamount;
-                        final_string += "Date:- " + date + "\n" + "Time:- " + time + "\n" + "\nOrder Details:-\n" + orderDetails + "Payable Amount:- " + totalamount + "\n" + "Payment:- " + payment + "\n\n";
+                        final_string += "Date:- " + date + "\n" + "Time:- " + time + "\n" + "\nOrder Details:-\n" + orderDetails + "Payable Amount:- " + totalamount + "\n" + "Payment:- " + payment + "\n"+"_______________________________"+"\n\n";
 
                     }
-//                    Log.d("fuck1", final_string);
-//                    Log.d("fuck2",""+total_payable_amount);
+
 
                     user_item_details.add(final_string);
                     user_total_payable_amount.add(total_payable_amount);
@@ -106,7 +98,6 @@ public class show_orders extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {//email
                         for(DataSnapshot snapshot1:snapshot.getChildren()) {
                             String user_email = snapshot1.getKey();
-                            Log.d("fuck2", user_email);
 
                             for (int i = 0; i < ordered_user_emails.size(); i++) {
                                 if (user_email.equals(ordered_user_emails.get(i))) {
