@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.anychart.charts.Pie;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(new CardItemClass("Add Grocery Items", R.drawable.add));
         arrayList.add(new CardItemClass("Add Laundry Service", R.drawable.ic_baseline_local_laundry_service_24));
         arrayList.add(new CardItemClass("Add Rental Service", R.drawable.rental));
-
         arrayList.add(new CardItemClass("Show Orders", R.drawable.cart));
         arrayList.add(new CardItemClass("Show Users", R.drawable.users2));
+        arrayList.add(new CardItemClass("Support Requests", R.drawable.ic_baseline_contact_support_24));
+        arrayList.add(new CardItemClass("Analyse orders", R.drawable.ic_baseline_pie_chart_24));
+
 
         Adapter adapter = new Adapter(this, arrayList);
         gridView.setAdapter(adapter);
@@ -52,9 +56,19 @@ public class MainActivity extends AppCompatActivity {
                    Intent intent=new Intent(getApplicationContext(),show_orders.class);
                     startActivity(intent);
                 }
-                else
+                else if(i==4)
                 {
                     Intent intent=new Intent(getApplicationContext(),show_users.class);
+                    startActivity(intent);
+                }
+                else if(i==5)
+                {
+                    Intent intent=new Intent(getApplicationContext(),show_support_requests.class);
+                    startActivity(intent);
+
+                }
+                else {
+                    Intent intent=new Intent(getApplicationContext(), PieChart.class);
                     startActivity(intent);
                 }
             }

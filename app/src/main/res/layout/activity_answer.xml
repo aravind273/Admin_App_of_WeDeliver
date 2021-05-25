@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/scrollview">
+        <EditText
+            android:layout_width="300dp"
+            android:minHeight="200dp"
+            android:height="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="start"
+            android:id="@+id/answer"
+            android:background="#33CCCCCC"
+            android:layout_centerHorizontal="true"
+            android:hint="Message..."
+            android:padding="10dp"></EditText>
+    </ScrollView>
+
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_background"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/submit_answer"
+        android:layout_marginTop="20dp"
+        android:text="submit"></Button>
+
+</RelativeLayout>

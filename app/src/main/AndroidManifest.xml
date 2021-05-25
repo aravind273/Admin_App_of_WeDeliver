@@ -9,17 +9,20 @@
         android:roundIcon="@drawable/adminlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdminApp">
-        <activity android:name=".rental"></activity>
+        <activity android:name=".PieChart"></activity>
+        <activity android:name=".answer" />
+        <activity android:name=".show_support_requests" />
+        <!--
+               Set to true if your app is Standalone, that is, it does not require the handheld
+               app to run.
+        -->
+        <activity android:name=".rental" />
         <activity android:name=".laundry" />
         <activity android:name=".cart" />
         <activity android:name=".Item_successfully_added" />
         <activity android:name=".show_users" />
         <activity android:name=".show_orders" />
         <activity android:name=".add_items" />
-        <!--
-               Set to true if your app is Standalone, that is, it does not require the handheld
-               app to run.
-        -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +32,8 @@
         </activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
